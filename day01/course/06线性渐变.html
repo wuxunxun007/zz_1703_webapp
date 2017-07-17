@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		
+		//
+		var lg = ctx.createLinearGradient(100,100,100,400);
+		lg.addColorStop(0,"red");
+		lg.addColorStop(0.2,"orange");
+		lg.addColorStop(0.4,"yellow");
+		lg.addColorStop(0.6,"green");
+		lg.addColorStop(0.8,"blue")
+		lg.addColorStop(1,"purple")
+		
+		ctx.fillStyle = lg;
+		ctx.fillRect(0,0,500,500)
+		
+	</script>
+</html>

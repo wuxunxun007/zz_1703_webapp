@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		
+		ctx.fillStyle = "red";
+		ctx.rotate(Math.PI/9);  // -----   旋转找的是原点的位置
+		ctx.translate(-100,0);
+		ctx.rect(490,0,10,10);
+		ctx.fill();
+		
+	</script>
+</html>

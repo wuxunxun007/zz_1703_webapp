@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		
+		//
+			var rg = ctx.createRadialGradient(250,250,5,250,250,250);
+		rg.addColorStop(0,"red");
+		rg.addColorStop(0.2,"orange");
+		rg.addColorStop(0.4,"yellow");
+		rg.addColorStop(0.6,"green");
+		rg.addColorStop(0.8,"blue")
+		rg.addColorStop(1,"purple")
+		
+		ctx.fillStyle = rg;
+//		ctx.lineWidth = 30;
+		ctx.bezierCurveTo(0,250,250,-100,500,250);
+		ctx.fill();
+		
+	</script>
+</html>

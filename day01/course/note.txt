@@ -1,0 +1,122 @@
+一、canvas
+	就是用来画图像的-----js绘制图像
+	canvas----网站图片、游戏、画板......
+	基于上下文对象
+	基础
+		
+二、canvas用法
+	html   -----   标签内部的内容，当浏览器不支持canvas标签时显示------video、audio
+		<canvas id="canvas" width="500" height="500"></canvas>
+	js
+		1/获取DOM节点
+			var canvas = dg("canvas");
+		2/获取上下文对象
+			var ctx = canvas.getContext("2d");
+		3/设置绘制条件---边框和背景颜色  ---- 原材料
+			如果一个块，要看见，用的加边框和背景的方式
+				ctx.strokeStyle  ----   加边框
+				ctx.fillStyle   ----    加背景颜色    ----  string,16进制，rgb，rgba，lab,hsb,cmyk(用于印刷业)
+					ctx.strokeStyle = "red";
+					ctx.fillStyle = "#00f";
+			线宽设置    ctx.lineWidth = 10;
+		4/绘制图像-----搭框架
+			圆、矩形、曲线、......
+		5/看得见
+			ctx.stroke();
+			ctx.fill();    起始点---结束点  收尾相连的闭合区域
+三、矩形
+	ctx.rect(x,y,w,h)
+	ctx.fillRect(x,y,w,h)
+	ctx.strokeRect(x,y,w,h)
+四、橡皮擦 --- 清除矩形区域
+	ctx.clearRect(x,y,w,h)
+五、圆弧
+	ctx.arc(x,y,r,startA,endA[,boolean])
+		x,y,r
+		startA，	endA 起始结束角度 ----- 用的不是角度，用的弧度   --  Math.PI
+		boolean   可选  ---  默认顺时针
+			true:   逆时针
+			false:  顺时针	
+六、路径
+	ctx.beginPath()
+	ctx.closePath()
+
+七、线段
+	ctx.moveTo(x,y)   --- 就像移动了原点一样 -----重新开始绘制
+	ctx.lineTo(x,y)	  --- 两点定一线，将上一个点的坐标作为起始点，这个作为终止点			
+					
+八、曲线----贝塞尔曲线
+	ctx.bezierCurveTo(startX,startY,controlX,controlY,endX,endY);
+		controlX,controlY  不一定在线上，如果在线上，实际上就是一条直线	
+	ctx.quadraticCurveTo(controlX,controlY,endX,endY);
+		会将上次的结束点作为这一次的起始点
+			上次的结束点  ---   可以是线段的点				
+九、线性渐变
+	var lg = ctx.createLinearGradient(100,100,100,400);
+		lg.addColorStop(0,"red");
+		lg.addColorStop(0.2,"orange");
+	ctx.fillStyle = lg;
+	ctx.strokeStyle = lg;
+十、径向渐变
+	var rg = ctx.createRadialGradient(250,250,5,250,250,250);
+		rg.addColorStop(0,"red");
+		rg.addColorStop(0.2,"orange");
+		rg.addColorStop(0.4,"yellow");
+	ctx.fillStyle = rg;
+	ctx.strokeStyle = rg;
+	
+十一、变形
+	translate  ----   平移原点
+	rotate     ----   以原点为中心
+	scale      ----   原点不变，坐标变大变小
+
+十二、阴影
+	ctx.shadowOffsetX = 10;
+	ctx.shadowOffsetY = 10;
+	ctx.shadowBlur = 10;
+	ctx.shadowColor = "#000";
+
+十三、绘制文字
+	ctx.font = "italic 30px  黑体";   ---- style/size/family
+	ctx.textBaseline = "top";   ----文字和坐标点 顶部对齐
+	ctx.fillText(str,x,y);  --- 将str放在（x，y）处   ---- 实心字
+	ctx.strokeText(str,x,y)  ----空心字
+十四、保存和恢复状态（context）
+	ctx.save();
+	ctx.restore();
+	
+十五、图像组合
+	在绘制完成第一个图形之后，加 
+   context.globalCompositeOperation=type 
+   再接着绘制第二个图形 
+   type： 
+   source-over（默认值）:在原有图形上绘制新图形 
+   destination-over:在原有图形下绘制新图形 
+   source-in:显示原有图形和新图形的交集，新图形在上，所以颜色为新图形的颜色 
+   destination-in:显示原有图形和新图形的交集，原有图形在上，所以颜色为原有图形的颜色 
+   source-out:只显示新图形非交集部分 
+   destination-out:只显示原有图形非交集部分,是将交集的部分转化为透明 
+   source-atop:显示原有图形和交集部分，新图形在上，所以交集部分的颜色为新图形的颜色 
+   destination-atop:显示新图形和交集部分，新图形在下，所以交集部分的颜色为原有图形的颜色 
+   lighter:原有图形和新图形都显示，交集部分做颜色叠加 
+   xor:重叠飞部分不现实 
+   copy:只显示新图形
+		
+十六、结合setInterval制作动画
+	 window.setInterval(function(){ 
+	  //执行的方法体 
+	  },10)；	
+十七、图像
+	ctx.drawImage(img,x,y)
+	ctx.drawImage(img,x,y,w,h)
+	ctx.drawImage(img,cx,cy,cw,ch,dx,dy,dw,wh)
+
+		
+作业：
+	圆弧作业  循环	
+	线段  七巧板   满天星
+	时钟    ****
+	canvas绘制一个卡通人物或者5个表情包    ****
+	
+	观察一个代码   大转盘游戏
+					

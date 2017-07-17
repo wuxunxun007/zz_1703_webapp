@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		
+		ctx.font = "italic 120px  黑体";
+		ctx.textBaseline = "top";
+		ctx.fillStyle = "red";
+		
+		ctx.fillText("测试",0,0)
+		
+		ctx.strokeText("测试1",100,100)
+	</script>
+</html>

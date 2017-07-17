@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		ctx.fillStyle = "red";
+		
+		ctx.save();//此时保存的是填充为red颜色
+		
+		ctx.fillStyle = "blue";
+		
+		ctx.save();
+		
+		ctx.restore();//此时fillstyle为蓝色
+		
+		ctx.save();
+		
+		ctx.fillRect(100,100,100,100);
+		
+		ctx.restore();//此时fillstyle为红色
+		
+		ctx.fillRect(300,100,100,100);
+		
+	</script>
+</html>

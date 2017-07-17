@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		//边框
+		ctx.strokeStyle = "#f66";
+		
+		/***
+		 * 矩形
+		 * 		ctx.rect(x,y,w,h);
+		 */
+		ctx.rect(100,100,100,100);
+		
+		ctx.stroke();
+		
+		//如果需要上下不影响----重新开始
+		ctx.beginPath();
+		
+		//填充颜色
+		ctx.fillStyle = "blue";
+		
+		ctx.rect(100,300,100,100);
+		
+		ctx.fill();
+		
+		ctx.beginPath();
+		
+		//既有边框，又有背景
+		ctx.fillStyle = "#0f0";
+		ctx.strokeStyle = "red";
+		
+		ctx.rect(300,100,100,100);
+		
+		ctx.stroke();
+		ctx.fill();
+		
+		ctx.beginPath();
+		
+		//填充矩形写法
+		ctx.fillStyle = "pink";
+		ctx.fillRect(225,225,50,50);
+		
+		ctx.beginPath();
+		
+		//边框矩形写法
+		ctx.strokeStyle = "skyblue";
+		ctx.strokeRect(125,225,50,50);
+		
+		//橡皮擦---
+		ctx.clearRect(150,150,200,200)
+	</script>
+</html>

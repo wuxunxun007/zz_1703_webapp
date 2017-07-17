@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		
+		ctx.fillStyle = "red";
+		ctx.translate(200,200);  //平移 移的实际上可以看做原点位置的平移
+		ctx.rect(0,0,100,100);
+		ctx.fill();
+		
+	</script>
+</html>

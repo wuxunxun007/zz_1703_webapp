@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		
+		ctx.fillStyle = "red";
+		
+		ctx.shadowOffsetX = 10;
+		ctx.shadowOffsetY = 10;
+		ctx.shadowBlur = 10;
+		ctx.shadowColor = "#000";
+		
+		ctx.rect(100,100,100,100);
+		ctx.fill();
+		
+	</script>
+</html>
